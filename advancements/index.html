@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advancements — Places Wiki</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .tree-container {
+      width: 100%;
+      overflow: auto;
+      background: #111;
+      border: 2px solid #222;
+      border-radius: 4px;
+      margin-top: 1rem;
+      padding: 3rem;
+      /* subtle minecraft-like pattern background could go here, but solid works */
+    }
+
+    .tree {
+      display: inline-flex;
+    }
+
+    .tree ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 40px;
+      list-style: none;
+      margin: 0;
+      position: relative;
+    }
+
+    .tree > ul {
+      padding-left: 0;
+    }
+
+    .tree li {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    /* Vertical lines connecting siblings */
+    .tree li::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: #444;
+    }
+
+    .tree li:first-child::before {
+      top: 50%;
+      height: 50%;
+    }
+
+    .tree li:last-child::before {
+      height: 50%;
+    }
+
+    .tree li:first-child:last-child::before {
+      display: none;
+    }
+
+    /* Horizontal line into the item */
+    .tree > ul > li::after {
+      display: none; /* Root has no incoming line */
+    }
+
+    .tree li::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      width: 20px;
+      height: 2px;
+      background: #444;
+    }
+
+    /* Horizontal line out from parent to children (applied on ul) */
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 20px;
+      height: 2px;
+      background: #444;
+    }
+
+    .tree > ul::before {
+      display: none;
+    }
+
+    /* Advancement box styling */
+    .adv-box {
+      background: #1a1510;
+      border: 2px solid #3a3028;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      width: 200px;
+      position: relative;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+      transition: all 0.2s;
+    }
+
+    .adv-box:hover {
+      border-color: #a08060;
+      background: #231c15;
+      transform: scale(1.02);
+      z-index: 10;
+    }
+
+    .adv-title {
+      color: #e8dcc8;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      font-family: 'VT323', monospace;
+      font-size: 1.1rem;
+    }
+
+    .adv-desc {
+      color: #888;
+      font-size: 0.7rem;
+      line-height: 1.3;
+    }
+
+    /* Custom scrollbar for tree container */
+    .tree-container::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    .tree-container::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    .tree-container::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 5px;
+    }
+    .tree-container::-webkit-scrollbar-thumb:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="max-width: 900px;">
+    <div class="site-title">Places<span>Wiki</span></div>
+    
+    <div class="top-nav">
+      <!-- Advancements tab is only accessible from home, but this IS the advancements page so we don't show the link here either to fit the requirement, or just show home -->
+      <a href="../index.html">← back to home</a>
+    </div>
+
+    <div class="page-title">Advancements</div>
+    <div class="divider"></div>
+
+    <div class="stub-notice">
+      <p>Here is the full advancements tree extracted from the mod files. Drag or scroll to view.</p>
+    </div>
+
+    <div class="tree-container">
+      <div class="tree">
+        <ul>
+          <li>
+            <div class="adv-box">
+              <div class="adv-title">Places</div>
+              <div class="adv-desc">If you want to enter the Places - find an abandoned house in a plains or a forest biome</div>
+            </div>
+            <ul>
+              <li>
+                <div class="adv-box">
+                  <div class="adv-title">No turning back</div>
+                  <div class="adv-desc">It's eternity in here.</div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">My tongue tastes yellow</div>
+                      <div class="adv-desc">Find and roast some Backshrooms</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">The endless yellow</div>
+                      <div class="adv-desc">Explore every 0 biome</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Everywhere At The End Of Time</div>
+                      <div class="adv-desc">Visit every Places dimension</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">I'm Mold!</div>
+                      <div class="adv-desc">Find some Mold Spores. Mold Spores can be farmed and turned into slime</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Interior Designer</div>
+                      <div class="adv-desc">Collect every Wallpaper Pattern</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Iron Stomach</div>
+                      <div class="adv-desc">Eat every flavor of Candy Bars</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Home is a Place</div>
+                      <div class="adv-desc">Find an odd looking Cherry Door in 0 and enter ṃ</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">C0d3Br34k3r</div>
+                      <div class="adv-desc">Obtain the Operator Floppy</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Recycling</div>
+                      <div class="adv-desc">Obtain Scrapwood from either punching skirting or recycling wooden blocks</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Rest Spot</div>
+                      <div class="adv-desc">Craft a Rest Stop Sign to be able to set your spawn within the Places</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Iron Stomach (Sodas)</div>
+                      <div class="adv-desc">Drink every flavor of Soda</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Taste the Rainbow</div>
+                      <div class="adv-desc">Eat every color of crayon</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Redshift</div>
+                      <div class="adv-desc">Find a portal in 0 and Enter Ʀ</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">Disconnect</div>
+                      <div class="adv-desc">Explore far enough in level 0 and get to the Ridge</div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="adv-box">
+                          <div class="adv-title">...The End is never The End is...</div>
+                          <div class="adv-desc">Explore the farther regions of 0 or α and enter →|</div>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="adv-box">
+                              <div class="adv-title">Can I see the logs?</div>
+                              <div class="adv-desc">Obtain Item Error from slaying an Errot mob.</div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="adv-box">
+                              <div class="adv-title">Structural Integrity</div>
+                              <div class="adv-desc">Run the Operator Floppy, find a newly opened portal and enter the Structure Bridge</div>
+                            </div>
+                            <ul>
+                              <li>
+                                <div class="adv-box">
+                                  <div class="adv-title">Bugfixing</div>
+                                  <div class="adv-desc">Obtain Debug Item</div>
+                                </div>
+                                <ul>
+                                  <li>
+                                    <div class="adv-box">
+                                      <div class="adv-title">I can fix her</div>
+                                      <div class="adv-desc">Obtain the Debugger</div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="adv-box">
+                                      <div class="adv-title">Personal Qualia</div>
+                                      <div class="adv-desc">Enter your Pocket Grid</div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="adv-box">
+                                      <div class="adv-title">This really brings you back</div>
+                                      <div class="adv-desc">Obtain an Unbound Key. Unbound Keys can be used for fast travel</div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="adv-box">
+                                      <div class="adv-title">So many doors...</div>
+                                      <div class="adv-desc">Obtain an Unbound Structure Key</div>
+                                    </div>
+                                    <ul>
+                                      <li>
+                                        <div class="adv-box">
+                                          <div class="adv-title">Keygen</div>
+                                          <div class="adv-desc">Obtain every Structure Key</div>
+                                        </div>
+                                        <ul>
+                                          <li>
+                                            <div class="adv-box">
+                                              <div class="adv-title">advancements.exit_key.title</div>
+                                              <div class="adv-desc">advancements.exit_key.descr</div>
+                                            </div>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <div class="adv-box">
+                                  <div class="adv-title">Form given Form</div>
+                                  <div class="adv-desc">Obtain Structure Shards</div>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="adv-box">
+                      <div class="adv-title">So here's this game i found...</div>
+                      <div class="adv-desc">Enter α by running CaveGame_alpa floppy on a working computer</div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="adv-box">
+                          <div class="adv-title">Retro Gaming</div>
+                          <div class="adv-desc">Explore every α biome</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      places mod by shaithelamb &nbsp;·&nbsp; wiki by terslenk &nbsp;·&nbsp; <span class="blink">_</span>
+    </div>
+  </div>
+</body>
+</html>
