@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin System Access</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body data-path="~/admin">
+  <div class="container">
+    <pre class="ascii-title large" style="color:#cc3333" aria-label="System Access">
+███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗
+██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
+███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
+╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
+███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║
+╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝
+</pre>
+
+    <div class="subtitle" style="color:#cc3333">
+
+    <div class="divider"></div>
+
+    <div style="font-family:'Share Tech Mono', monospace; font-size:0.82rem; margin-bottom:1rem; color:#cc3333; margin-top: 1.5rem;">
+      <span style="color:#cc3333">root@places</span>:<span style="color:#e8dcc8">~/admin</span># cat system.log
+    </div>
+
+    <div class="status-block" style="border-left: 2px solid #cc3333; padding-left: 1rem;">
+      <p style="color:#cc3333; margin-top:0;">[WARNING] Multiple architectural anomalies detected across sector 0.</p>
+      <p style="color:#999">
+        Logs indicate the dimensions are not stable. The generated rooms are collapsing and expanding randomly.
+        The "Places" were never meant to be documented.
+      </p>
+      <p style="color:#999">
+        Entity interactions have spiked by 400%. The Endlessman is behaving erratically.
+        If you are reading this, the containment protocol has already failed. 
+      </p>
+      <p style="color:#cc3333; margin-top: 1rem;">
+        DO NOT PROCEED FURTHER. 
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="font-family:'Share Tech Mono', monospace; font-size:0.82rem; margin-bottom:1rem; color:#c8c8c8; margin-top: 1.5rem;">
+      <span style="color:#cc3333">root@places</span>:<span style="color:#e8dcc8">~/admin</span># ls -la /restricted
+    </div>
+    <div class="ls-listing">
+      <div class="ls-item-static">
+        <span class="perms" style="color:#cc3333">-rwx------</span>
+        <span class="name" style="text-decoration: line-through;">containment_grid.exe</span>
+        <span class="meta">[CORRUPTED]</span>
+      </div>
+      <div class="ls-item-static">
+        <span class="perms">-rw-------</span>
+        <span class="name">operator_notes.txt</span>
+        <span class="meta">"They found the Floppy"</span>
+      </div>
+      <div class="ls-item-static">
+        <span class="perms" style="color:#cc3333">drwx------</span>
+        <span class="name dir-name" style="color:#cc3333">.black_hole</span>
+        <span class="meta">null</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      system integrity compromised | <span class="blink">_</span>
+    </div>
+  </div>
+
+  <script src="terminal.js"></script>
+  <script>
+    (function() {
+      let audioStarted = false;
+      function startCreepyMusic() {
+        if (audioStarted) return;
+        try {
+          var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume().then(() => {
+              if (audioCtx.state === 'running') initMusic(audioCtx);
+            });
+            return;
+          }
+          initMusic(audioCtx);
+        } catch(e) { console.error("Audio failed", e); }
+      }
+
+      function initMusic(audioCtx) {
+        audioStarted = true;
+
+        var bufferSize = 2 * audioCtx.sampleRate;
+        var noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        var output = noiseBuffer.getChannelData(0);
+        for (var i = 0; i < bufferSize; i++) {
+            var white = Math.random() * 2 - 1;
+            if (Math.random() < 0.002) {
+               output[i] = white * 0.4;
+            } else if (Math.random() < 0.0005) {
+               output[i] = white * 1.0;
+            } else {
+               output[i] = white * 0.02;
+            }
+        }
+        var noise = audioCtx.createBufferSource();
+        noise.buffer = noiseBuffer;
+        noise.loop = true;
+        var noiseFilter = audioCtx.createBiquadFilter();
+        noiseFilter.type = 'lowpass';
+        noiseFilter.frequency.value = 2500;
+        noise.connect(noiseFilter);
+        noiseFilter.connect(audioCtx.destination);
+        noise.start();
+
+        var chords = [
+          [261.63, 329.63, 392.00], 
+          [329.63, 415.30, 493.88], 
+          [220.00, 261.63, 329.63], 
+          [293.66, 370.00, 440.00]  
+        ];
+        var chordIndex = 0;
+
+        function playNextChord() {
+          var chord = chords[chordIndex];
+          var chordDuration = 4.0;
+
+          var masterGain = audioCtx.createGain();
+          masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+          masterGain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 1.0);
+          masterGain.gain.setValueAtTime(0.08, audioCtx.currentTime + chordDuration - 1.0);
+          masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + chordDuration);
+
+          var filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.value = 600; 
+          masterGain.connect(filter);
+          filter.connect(audioCtx.destination);
+
+          var lfo = audioCtx.createOscillator();
+          lfo.type = 'sine';
+          lfo.frequency.value = 0.2;
+          var lfoGain = audioCtx.createGain();
+          lfoGain.gain.value = 4;
+          lfo.connect(lfoGain);
+          lfo.start();
+          lfo.stop(audioCtx.currentTime + chordDuration);
+
+          chord.forEach(function(freq) {
+            var osc = audioCtx.createOscillator();
+            var osc2 = audioCtx.createOscillator();
+            osc.type = 'sine';
+            osc2.type = 'triangle';
+
+            freq = freq * 0.4;
+
+            osc.frequency.value = freq;
+            osc2.frequency.value = freq * 1.01; 
+
+            lfoGain.connect(osc.frequency);
+            lfoGain.connect(osc2.frequency);
+
+            var gain = audioCtx.createGain();
+            gain.gain.value = 1.0 / chord.length;
+
+            osc.connect(gain);
+            osc2.connect(gain);
+            gain.connect(masterGain);
+
+            osc.start(audioCtx.currentTime);
+            osc2.start(audioCtx.currentTime);
+            osc.stop(audioCtx.currentTime + chordDuration);
+            osc2.stop(audioCtx.currentTime + chordDuration);
+          });
+
+          chordIndex = (chordIndex + 1) % chords.length;
+          setTimeout(playNextChord, (chordDuration - 0.5) * 1000);
+        }
+
+        playNextChord();
+      }
+
+      document.body.addEventListener('click', startCreepyMusic);
+      document.body.addEventListener('keydown', startCreepyMusic);
+
+      setTimeout(startCreepyMusic, 500);
+    })();
+  </script>
+</body>
+</html>
