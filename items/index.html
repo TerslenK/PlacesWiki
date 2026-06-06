@@ -6,21 +6,21 @@
   <title>Items — Places Wiki</title>
   <link rel="stylesheet" href="../style.css"/>
 </head>
-<body>
+<body data-path="~/items">
   <div class="container">
-    <div class="site-title">Places<span>Wiki</span></div>
-    <div class="breadcrumb">
-      <a href="../index.html">home</a> / items
-    </div>
-
-    <div class="top-nav">
-      <a href="../index.html">home</a>
-      <a href="../dimensions/index.html">dimensions</a>
-      <a href="../items/index.html" class="active">items</a>
-      <a href="../entities/index.html">entities</a>
-    </div>
+    <pre class="ascii-title" aria-label="PlacesWiki">
+<span class="places-text">░▒▓███████▓▒░░▒▓█▓▒░       ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓████████▓▒░░▒▓███████▓▒░ </span><span class="wiki-text">░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░ </span>
+<span class="places-text">░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░        </span><span class="wiki-text">░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░ </span>
+<span class="places-text">░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░        </span><span class="wiki-text">░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░ </span>
+<span class="places-text">░▒▓███████▓▒░░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░      ░▒▓██████▓▒░  ░▒▓██████▓▒░  </span><span class="wiki-text">░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░ </span>
+<span class="places-text">░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░ </span><span class="wiki-text">░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░ </span>
+<span class="places-text">░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░ </span><span class="wiki-text">░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░ </span>
+<span class="places-text">░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓████████▓▒░▒▓███████▓▒░  </span><span class="wiki-text"> ░▒▓█████████████▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░</span>
+</pre>
 
     <div class="page-title">Items</div>
+
+    
 
     <div class="divider"></div>
 
@@ -30,55 +30,48 @@
 
     <div class="divider"></div>
 
-    <div class="section-label">// Consumables</div>
-    <div class="nav-grid" style="margin-bottom: 2rem;">
-      <div class="nav-item" style="cursor:default"><span class="label">Twinfingers Candy Bars (16 flavors)</span><span class="id">places:twinfingers_*</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Soda (19 flavors)</span><span class="id">places:soda_*</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Crayons (16 colors)</span><span class="id">places:*_crayon</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Mold Sandwich</span><span class="id">places:mold_sandwich</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Slop</span><span class="id">places:slop</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Bleach</span><span class="id">places:bleach</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Roasted Backshrooms</span><span class="id">places:roasted_backshrooms</span></div>
-    </div>
+    <div class="ls-listing">
+      <div class="ls-header">Consumables</div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Twinfingers Candy Bars (16 flavors)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Soda (19 flavors)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Crayons (16 colors)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Mold Sandwich</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Slop</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Bleach</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Roasted Backshrooms</span></div>
 
-    <div class="section-label">// Tools & Weapons</div>
-    <div class="nav-grid" style="margin-bottom: 2rem;">
-      <div class="nav-item" style="cursor:default"><span class="label">Scrapwood Pickaxe / Axe / Sword / Shovel / Hoe</span><span class="id">places:scrapwood_tools_*</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Climbing Pick</span><span class="id">places:climbing_pick</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Multi-Tool</span><span class="id">places:multi_tool</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Matchstick</span><span class="id">places:match_stick</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Cardboard Armor Set</span><span class="id">places:cardboard_armor_*</span></div>
-    </div>
+      <div class="ls-header">Tools & Weapons</div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Scrapwood Pickaxe / Axe / Sword / Shovel / Hoe</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Climbing Pick</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Multi-Tool</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Matchstick</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Cardboard Armor Set</span></div>
 
-    <div class="section-label">// Keys & Navigation</div>
-    <div class="nav-grid" style="margin-bottom: 2rem;">
-      <div class="nav-item" style="cursor:default"><span class="label">Structure Keys (Alpha, Manila, Red Road, Ridge, The End)</span><span class="id">places:level_key_0_*</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Unbound Structure Key</span><span class="id">places:unbound_structure_key</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Unbound Key (Fast Travel)</span><span class="id">places:warp_item</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Glitched Key</span><span class="id">places:glitched_key</span></div>
-    </div>
+      <div class="ls-header">Keys & Navigation</div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Structure Keys (Alpha, Manila, Red Road, Ridge, The End)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Unbound Structure Key</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Unbound Key (Fast Travel)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Glitched Key</span></div>
 
-    <div class="section-label">// Media & Entertainment</div>
-    <div class="nav-grid" style="margin-bottom: 2rem;">
-      <div class="nav-item" style="cursor:default"><span class="label">Playing Cards (54 card deck)</span><span class="id">places:deck</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Music Discs (6 tracks)</span><span class="id">places:*_disc</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Floppy Disks (Empty, The End, Pl.Map, CaveGame_alpha, Operator)</span><span class="id">places:*_floppy</span></div>
-    </div>
+      <div class="ls-header">Media & Entertainment</div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Playing Cards (54 card deck)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Music Discs (6 tracks)</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Floppy Disks (Empty, The End, Pl.Map, CaveGame_alpha, Operator)</span></div>
 
-    <div class="section-label">// Materials</div>
-    <div class="nav-grid">
-      <div class="nav-item" style="cursor:default"><span class="label">Scrapwood</span><span class="id">places:scrapwood</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Cardboard</span><span class="id">places:cardboard_sheet</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Copper Wire</span><span class="id">places:copper_wire</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Plastic Scrap / Pure Plastic</span><span class="id">places:plastic</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Glass Shards</span><span class="id">places:glass_shards</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Structure Shard</span><span class="id">places:structure_shard</span></div>
-      <div class="nav-item" style="cursor:default"><span class="label">Aluminium / Industrial / Rusty Ingots & Nuggets</span><span class="id">places:*_ingot</span></div>
+      <div class="ls-header">Materials</div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Scrapwood</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Cardboard</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Copper Wire</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Plastic Scrap / Pure Plastic</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Glass Shards</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Structure Shard</span></div>
+      <div class="ls-item-static"><span class="perms">-rw-r--r--</span><span class="name">Aluminium / Industrial / Rusty Ingots & Nuggets</span></div>
     </div>
 
     <div class="footer">
-      places mod by shaithelamb &nbsp;·&nbsp; wiki by terslenk &nbsp;·&nbsp; <span class="blink">_</span>
+      places mod by shaithelamb | wiki by terslenk | <span class="blink">_</span>
     </div>
   </div>
+  <script src="../terminal.js"></script>
 </body>
 </html>
