@@ -8,13 +8,12 @@
 </head>
 <body data-path="~/admin">
   <div class="container">
-    <pre class="ascii-title large" style="color:#cc3333" aria-label="System Access">
-███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗
-██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║
-███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║
-╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║
-███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║
-╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝
+    <pre class="ascii-title" aria-label="PlacesWiki">
+<span class="places-text">▄▄▄▄▄▄▄   ▄▄                         </span><span class="wiki-text">▄▄▄▄  ▄▄▄  ▄▄▄▄                </span>
+<span class="places-text">███▀▀███▄ ██                         </span><span class="wiki-text">▀███  ███  ███▀ ▀▀  ▄▄     ▀▀  </span>
+<span class="places-text">███▄▄███▀ ██  ▀▀█▄ ▄████ ▄█▀█▄ ▄█▀▀▀ </span><span class="wiki-text"> ███  ███  ███  ██  ██ ▄█▀ ██  </span>
+<span class="places-text">███▀▀▀▀   ██ ▄█▀██ ██    ██▄█▀ ▀███▄ </span><span class="wiki-text"> ███▄▄███▄▄███  ██  ████   ██  </span>
+<span class="places-text">███       ██ ▀█▄██ ▀████ ▀█▄▄▄ ▄▄▄█▀ </span><span class="wiki-text">  ▀████▀████▀   ██▄ ██ ▀█▄ ██▄ </span>
 </pre>
 
     <div class="subtitle" style="color:#cc3333">
@@ -68,9 +67,25 @@
     </div>
   </div>
 
+  <script src="virus.js"></script>
   <script src="terminal.js"></script>
   <script>
     (function() {
+      // Gate: only root users can be here
+      var urlParams = new URLSearchParams(window.location.search);
+      var auth = urlParams.get('auth');
+      var user = localStorage.getItem('terminalUser') || 'guest';
+      
+      if (user !== 'root' && auth !== 'root') {
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // Sync auth to localStorage for this specific file's isolated scope
+      if (auth === 'root') {
+        localStorage.setItem('terminalUser', 'root');
+      }
+
       let audioStarted = false;
       function startCreepyMusic() {
         if (audioStarted) return;
@@ -183,6 +198,20 @@
       document.body.addEventListener('keydown', startCreepyMusic);
 
       setTimeout(startCreepyMusic, 500);
+
+      // Auto-trigger virus after a delay if nightmare isn't already active
+      if (localStorage.getItem('nightmareMode') !== 'true') {
+        setTimeout(function() {
+          if (typeof window.startVirus === 'function') {
+            window.startVirus();
+          }
+        }, 5000);
+      } else if (localStorage.getItem('virusInfection') === 'true') {
+        // Already infected — spawn creepy eyes that gradually obscure the admin page
+        if (typeof window.spawnInfectedEyes === 'function') {
+          window.spawnInfectedEyes();
+        }
+      }
     })();
   </script>
 </body>
